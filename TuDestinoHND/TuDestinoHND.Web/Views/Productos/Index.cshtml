@@ -1,0 +1,12 @@
+﻿@model List<TuDestinoHND.Web.Models.ProductoModel>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Tipo de Habitaciones</h2>
+
+@foreach (var producto in Model)
+{
+    <p>@producto.Id @producto.Descripcion</p>
+}
+
