@@ -22,5 +22,11 @@ namespace TuDestinoHND.BL
             return listadeProductos;
 
         }
+
+        public void GuardarProducto(Producto producto)
+        {
+            _contexto.Productos.Add(producto);
+            _contexto.SaveChanges();
+        }
     }
 }
