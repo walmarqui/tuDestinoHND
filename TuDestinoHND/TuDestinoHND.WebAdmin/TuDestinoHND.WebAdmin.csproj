@@ -148,6 +148,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CategoriasController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\productosController.cs" />
     <Compile Include="Global.asax.cs">
@@ -170,6 +171,14 @@
     <Content Include="scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\productos\Index.cshtml" />
     <Content Include="Views\productos\crear.cshtml" />
+    <Content Include="Views\productos\editar.cshtml" />
+    <Content Include="Views\productos\Detalle.cshtml" />
+    <Content Include="Views\productos\Eliminar.cshtml" />
+    <Content Include="Views\categorias\Crear.cshtml" />
+    <Content Include="Views\categorias\editar.cshtml" />
+    <Content Include="Views\categorias\Detalle.cshtml" />
+    <Content Include="Views\categorias\Eliminar.cshtml" />
+    <Content Include="Views\categorias\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

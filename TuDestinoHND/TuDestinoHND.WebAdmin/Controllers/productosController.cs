@@ -40,6 +40,36 @@ namespace TuDestinoHND.WebAdmin.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult editar(int id)
+        {
+            var producto = _productosBL.obtenerProducto(id);
+            return View(producto);
+        }
 
+        [HttpPost]
+        public ActionResult editar(Producto producto)
+        {
+            _productosBL.GuardarProducto(producto);
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult Detalle(int id)
+        {
+            var producto = _productosBL.obtenerProducto(id);
+            return View(producto);
+        }
+
+        public ActionResult Eliminar(int id)
+        {
+            var producto = _productosBL.obtenerProducto(id);
+            return View(producto);
+        }
+
+        [HttpPost]
+        public ActionResult Eliminar(Producto producto)
+        {
+            _productosBL.eliminarProducto(producto.Id);
+            return RedirectToAction("Index");
+        }
     }
 }
