@@ -10,10 +10,12 @@ namespace TuDestinoHND.WebAdmin.Controllers
     public class productosController : Controller
     {
         ProductosBL _productosBL;
+        CategoriasBL _categoriasBL;
 
         public productosController()
         {
             _productosBL = new ProductosBL();
+            _categoriasBL = new CategoriasBL();
 
         }
         // GET: productos
@@ -28,21 +30,45 @@ namespace TuDestinoHND.WebAdmin.Controllers
         public ActionResult Crear()
         {
             var nuevoProducto = new Producto();
+            var categorias = _categoriasBL.obtenerCategorias();
+
+            ViewBag.ListaCategorias = new SelectList(categorias, "Id", "Descripcion");
 
             return View(nuevoProducto);
         }
 
         [HttpPost]
-        public ActionResult crear(Producto producto)
+        public ActionResult crear(Producto producto, HttpPostedFileBase imagen)
         {
-            _productosBL.GuardarProducto(producto);
+            if (ModelState.IsValid)
+            {
+                if (producto.CategoriaId == 0)
+                {
+                    ModelState.AddModelError("Categoria.Id", "Seleccione una Categoria");
+                    return View(producto);
+                }
 
-            return RedirectToAction("Index");
+                if (imagen != null)
+                {
+                    producto.UrlImagen = GuardarImagen(imagen);
+                }
+
+                _productosBL.GuardarProducto(producto);
+
+                return RedirectToAction("Index");
+            }
+
+            var categorias = _categoriasBL.obtenerCategorias();
+
+            ViewBag.ListaCategorias = new SelectList(categorias, "Id", "Descripcion");
+
+
+            return View(producto);
         }
 
         public ActionResult editar(int id)
         {
-            var producto = _productosBL.obtenerProducto(id);
+            var producto = _productosBL.ObtenerProducto(id);
             return View(producto);
         }
 
@@ -55,13 +81,13 @@ namespace TuDestinoHND.WebAdmin.Controllers
 
         public ActionResult Detalle(int id)
         {
-            var producto = _productosBL.obtenerProducto(id);
+            var producto = _productosBL.ObtenerProducto(id);
             return View(producto);
         }
 
         public ActionResult Eliminar(int id)
         {
-            var producto = _productosBL.obtenerProducto(id);
+            var producto = _productosBL.ObtenerProducto(id);
             return View(producto);
         }
 
@@ -70,6 +96,14 @@ namespace TuDestinoHND.WebAdmin.Controllers
         {
             _productosBL.eliminarProducto(producto.Id);
             return RedirectToAction("Index");
+        }
+
+        private string GuardarImagen(HttpPostedFileBase imagen)
+        {
+            string path = Server.MapPath("~/Imagenes/" + imagen.FileName);
+            imagen.SaveAs(path);
+
+            return "/Imagenes/" + imagen.FileName;
         }
     }
 }

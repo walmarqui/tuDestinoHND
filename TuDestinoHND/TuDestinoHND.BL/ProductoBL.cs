@@ -9,6 +9,7 @@ namespace TuDestinoHND.BL
     public class ProductosBL
     {
         Contexto _contexto;
+
         public List<Producto> listadeProductos { get; set; }
 
         public ProductosBL()
@@ -32,13 +33,17 @@ namespace TuDestinoHND.BL
             else
             {
                 var productoExistente = _contexto.Productos.Find(producto.Id);
+
                 productoExistente.Descripcion = producto.Descripcion;
                 productoExistente.Precio = producto.Precio;
+                productoExistente.CategoriaId = producto.CategoriaId;
+                productoExistente.UrlImagen = producto.UrlImagen;
+
             }
             _contexto.SaveChanges();
         }
 
-        public Producto obtenerProducto(int id)
+        public Producto ObtenerProducto(int id)
         {
             var producto = _contexto.Productos.Find(id);
 

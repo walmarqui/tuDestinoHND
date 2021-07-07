@@ -35,9 +35,20 @@ namespace TuDestinoHND.WebAdmin.Controllers
         [HttpPost]
         public ActionResult crear(Categoria categoria)
         {
-            _categoriasBL.Guardarcategoria(categoria);
+            if (ModelState.IsValid)
+            {
+                if (categoria.Descripcion != categoria.Descripcion.Trim())
+                {
+                    ModelState.AddModelError("Descripcion", "la descripcion no debe tener espacios al inicio ni al final");
+                    return View(categoria);
+                }
+                _categoriasBL.Guardarcategoria(categoria);
 
-            return RedirectToAction("Index");
+                return RedirectToAction("Index");
+            }
+
+            return View(categoria);
+          
         }
 
         public ActionResult editar(int id)
@@ -49,6 +60,12 @@ namespace TuDestinoHND.WebAdmin.Controllers
         [HttpPost]
         public ActionResult editar(Categoria categoria)
         {
+            if (categoria.Descripcion != categoria.Descripcion.Trim())
+            {
+                ModelState.AddModelError("Descripcion", "la descripcion no debe tener espacios al inicio ni al final");
+                return View(categoria);
+            }
+
             _categoriasBL.Guardarcategoria(categoria);
             return RedirectToAction("Index");
         }

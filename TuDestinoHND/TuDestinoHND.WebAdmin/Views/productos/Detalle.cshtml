@@ -26,6 +26,14 @@
             @Html.DisplayFor(model => model.Precio)
         </dd>
 
+        <dt>
+            @Html.DisplayFor(model => model.UrlImagen)
+        </dt>
+
+        <dd>
+            <img src="@Model.UrlImagen" alt="@Model.Descripcion" style="width:200px; height:auto;"/>
+        </dd>
+
     </dl>
 </div>
 <p>
