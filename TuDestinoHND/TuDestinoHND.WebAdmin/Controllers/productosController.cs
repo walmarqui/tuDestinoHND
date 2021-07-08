@@ -32,7 +32,7 @@ namespace TuDestinoHND.WebAdmin.Controllers
             var nuevoProducto = new Producto();
             var categorias = _categoriasBL.obtenerCategorias();
 
-            ViewBag.ListaCategorias = new SelectList(categorias, "Id", "Descripcion");
+            ViewBag.CategoriaId = new SelectList(categorias, "Id", "Descripcion");
 
             return View(nuevoProducto);
         }
@@ -60,7 +60,7 @@ namespace TuDestinoHND.WebAdmin.Controllers
 
             var categorias = _categoriasBL.obtenerCategorias();
 
-            ViewBag.ListaCategorias = new SelectList(categorias, "Id", "Descripcion");
+            ViewBag.CategoriaId = new SelectList(categorias, "Id", "Descripcion");
 
 
             return View(producto);
@@ -69,6 +69,10 @@ namespace TuDestinoHND.WebAdmin.Controllers
         public ActionResult editar(int id)
         {
             var producto = _productosBL.ObtenerProducto(id);
+            var categorias = _categoriasBL.obtenerCategorias();
+
+            ViewBag.CategoriaId = new SelectList(categorias, "Id", "Descripcion", producto.CategoriaId);
+            
             return View(producto);
         }
 

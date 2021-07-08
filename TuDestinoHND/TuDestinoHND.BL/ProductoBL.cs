@@ -19,9 +19,11 @@ namespace TuDestinoHND.BL
         }
         public List<Producto> ObtenerProductos()
         {
-            listadeProductos = _contexto.Productos.ToList();
-            return listadeProductos;
+            listadeProductos = _contexto.Productos
+            .Include("Categoria")
+            .ToList();
 
+            return listadeProductos;
         }
 
         public void GuardarProducto(Producto producto)
@@ -45,7 +47,7 @@ namespace TuDestinoHND.BL
 
         public Producto ObtenerProducto(int id)
         {
-            var producto = _contexto.Productos.Find(id);
+            var producto = _contexto.Productos.Include("Categoria").FirstOrDefault(p => p.Id == id);
 
             return producto;
         }
