@@ -149,7 +149,9 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CategoriasController.cs" />
+    <Compile Include="Controllers\ClientesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ordenesController.cs" />
     <Compile Include="Controllers\productosController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -179,6 +181,15 @@
     <Content Include="Views\categorias\Index.cshtml" />
     <Content Include="Views\categorias\Crear.cshtml" />
     <Content Include="Views\productos\Crear.cshtml" />
+    <Content Include="Views\Clientes\crear.cshtml" />
+    <Content Include="Views\Clientes\Editar.cshtml" />
+    <Content Include="Views\Clientes\Detalle.cshtml" />
+    <Content Include="Views\Clientes\Eliminar.cshtml" />
+    <Content Include="Views\ordenes\Crear.cshtml" />
+    <Content Include="Views\ordenes\Index.cshtml" />
+    <Content Include="Views\ordenes\Editar.cshtml" />
+    <Content Include="Views\ordenes\Detalle.cshtml" />
+    <Content Include="Views\Clientes\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
