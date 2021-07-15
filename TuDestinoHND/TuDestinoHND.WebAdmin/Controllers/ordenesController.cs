@@ -13,8 +13,6 @@ namespace TuDestinoHND.WebAdmin.Controllers
         OrdenesBL _ordenesBL;
         ClienteBL _clientesBL;
 
-        public IEnumerable Clientes { get; private set; }
-
         public ordenesController()
         {
             _ordenesBL = new OrdenesBL();
@@ -34,7 +32,7 @@ namespace TuDestinoHND.WebAdmin.Controllers
             var nuevaOrden = new Orden();
             var clientes = _clientesBL.ObtenerClientesActivos();
 
-            ViewBag.ClienteId = new SelectList(Clientes, "Id", "Nombre");
+            ViewBag.ClienteId = new SelectList(clientes, "Id", "Nombre");
 
             return View(nuevaOrden);
         }
@@ -57,7 +55,7 @@ namespace TuDestinoHND.WebAdmin.Controllers
 
             var clientes = _clientesBL.ObtenerClientesActivos();
 
-            ViewBag.ClienteId = new SelectList(Clientes, "Id", "Nombre");
+            ViewBag.ClienteId = new SelectList(clientes, "Id", "Nombre");
 
             return View(orden);
         }
@@ -67,7 +65,7 @@ namespace TuDestinoHND.WebAdmin.Controllers
             var orden = _ordenesBL.ObtenerOrden(id);
             var clientes = _clientesBL.ObtenerClientesActivos();
 
-            ViewBag.ClienteId = new SelectList(Clientes, "Id", "Nombre", orden.ClienteId);
+            ViewBag.ClienteId = new SelectList(clientes, "Id", "Nombre", orden.ClienteId);
 
             return View(orden);
         }
@@ -90,7 +88,7 @@ namespace TuDestinoHND.WebAdmin.Controllers
 
             var clientes = _clientesBL.ObtenerClientesActivos();
 
-            ViewBag.ClienteId = new SelectList(Clientes, "Id", "Nombre", orden.ClienteId);
+            ViewBag.ClienteId = new SelectList(clientes, "Id", "Nombre", orden.ClienteId);
 
             return View(orden);
         }

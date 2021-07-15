@@ -1,4 +1,4 @@
-﻿@model IEnumerable<TuDestinoHND.BL.Orden>
+﻿@model IEnumerable<TuDestinoHND.BL.Cliente>
 
 @{
     ViewBag.Title = "Clientes";
@@ -12,13 +12,13 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Cliente)
+            @Html.DisplayNameFor(model => model.Nombre)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Fecha)
+            @Html.DisplayNameFor(model => model.Telefono)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Total)
+            @Html.DisplayNameFor(model => model.Direccion)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Activo)
@@ -29,20 +29,20 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Cliente)
+            @Html.DisplayFor(modelItem => item.Nombre)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Fecha)
+            @Html.DisplayFor(modelItem => item.Telefono)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Total)
+            @Html.DisplayFor(modelItem => item.Direccion)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Activo)
         </td>
         <td>
             @Html.ActionLink("Editar", "Editar", new { id=item.Id }) |
-            @Html.ActionLink("Detalles", "Detalles", new { id=item.Id }) |
+            @Html.ActionLink("Detalle", "Detalle", new { id=item.Id }) |
             @Html.ActionLink("Eliminar", "Eliminar", new { id=item.Id })
         </td>
     </tr>

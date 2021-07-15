@@ -17,14 +17,29 @@ namespace TuDestinoHND.BL
             _contexto = new Contexto();
             listadeProductos = new List<Producto>();
         }
+
         public List<Producto> ObtenerProductos()
         {
             listadeProductos = _contexto.Productos
             .Include("Categoria")
+            .OrderBy(r => r.Categoria.Descripcion)
+            .ThenBy(r => r.Descripcion)
             .ToList();
 
             return listadeProductos;
         }
+
+        public List<Producto> ObtenerProductosActivos()
+        {
+            listadeProductos = _contexto.Productos
+             .Include("Categoria")
+             .Where(r => r.Activo == true)
+             .OrderBy(r => r.Descripcion)
+             .ToList();
+
+            return listadeProductos;
+        }
+
 
         public void GuardarProducto(Producto producto)
         {
@@ -47,7 +62,8 @@ namespace TuDestinoHND.BL
 
         public Producto ObtenerProducto(int id)
         {
-            var producto = _contexto.Productos.Include("Categoria").FirstOrDefault(p => p.Id == id);
+            var producto = _contexto.Productos
+                .Include("Categoria").FirstOrDefault(p => p.Id == id);
 
             return producto;
         }
@@ -58,5 +74,7 @@ namespace TuDestinoHND.BL
             _contexto.Productos.Remove(producto);
             _contexto.SaveChanges();
         }
+
+       
     }
 }
