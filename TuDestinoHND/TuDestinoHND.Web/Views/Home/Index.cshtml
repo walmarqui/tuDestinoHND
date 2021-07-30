@@ -9,7 +9,7 @@
         <div class="heading"><h3>Elija un Destino</h3></div>
         <div class="row">
         @foreach (var producto in Model
-            .Where(r=> r.Categoria.Descripcion == "Destinos")
+            .Where(r=> r.Categoria.Descripcion == "Categoria")
             .Take(4)
             .OrderBy(r => Guid.NewGuid())
             )
@@ -33,7 +33,7 @@
     <div class="pos-bottom triangle-up"></div>
     <div class="pos-top triangle-bottom"></div>
     <div class="container">
-        <h4 class="font-30 font-sm-20  center-text mb-25">Agrega un <b>Trasporte</b>a tu Destino</h4>
+        <h4 class="font-30 font-sm-20  center-text mb-25">Agrega un <b>Trasporte a </b>tu Destino</h4>
     </div><!-- container -->
 </section>
 
