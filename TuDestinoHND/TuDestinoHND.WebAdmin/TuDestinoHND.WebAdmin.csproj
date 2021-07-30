@@ -1830,6 +1830,14 @@
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Imagenes\180442216.jpg" />
+    <Content Include="Imagenes\aa88cb63a8099118fc28881db0e10967.jpg" />
+    <Content Include="Imagenes\abitacionDoble.jpg" />
+    <Content Include="Imagenes\hoteles-w-920x515.jpg" />
+    <Content Include="Imagenes\hoteles.jpg" />
+    <Content Include="Imagenes\LagoLandia-1.jpg" />
+    <Content Include="Imagenes\Playa-West-Bay-1000x563.jpg" />
+    <Content Include="Imagenes\s.jpg" />
     <Content Include="scripts\ai.0.22.9-build00167.js" />
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="scripts\bootstrap.js" />
@@ -1925,7 +1933,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Imagenes\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
