@@ -57,6 +57,7 @@
     <Compile Include="Cliente.cs" />
     <Compile Include="ClienteBL.cs" />
     <Compile Include="Contexto.cs" />
+    <Compile Include="DatosDeInicio.cs" />
     <Compile Include="Orden.cs" />
     <Compile Include="OrdenesBL.cs" />
     <Compile Include="Producto.cs" />
@@ -64,6 +65,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReporteVentasPorProducto.cs" />
     <Compile Include="ReporteVentasPorProductoBL.cs" />
+    <Compile Include="Usuario.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

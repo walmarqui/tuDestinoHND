@@ -19,6 +19,8 @@ namespace TuDestinoHND.BL
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+            //agregar datos de inicio al momento de crear la base de datos
+            Database.SetInitializer(new DatosDeInicio());
         }
         public DbSet<Producto> Productos { get; set; }
         public DbSet<Categoria> Categorias { get; set; }
@@ -26,5 +28,6 @@ namespace TuDestinoHND.BL
 
         public DbSet<Orden> Ordenes { get; set; }
         public DbSet<OrdenDetalle> OrdenDetalle { get; set; }
+        public DbSet<Usuario> Usuarios { get; set; }
     }
 }
