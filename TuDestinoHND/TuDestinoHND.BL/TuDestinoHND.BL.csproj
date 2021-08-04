@@ -65,6 +65,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReporteVentasPorProducto.cs" />
     <Compile Include="ReporteVentasPorProductoBL.cs" />
+    <Compile Include="SeguridadBL.cs" />
     <Compile Include="Usuario.cs" />
   </ItemGroup>
   <ItemGroup>
