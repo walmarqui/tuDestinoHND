@@ -18,7 +18,9 @@ namespace TuDestinoHND.BL
 
         public bool Autorizar(string nombreUsuario, string contrasena)
         {
-            var usuario = _contexto.Usuarios.FirstOrDefault(r => r.Nombre == nombreUsuario && r.Contrasena == Encriptar.CodificarContrasena(contrasena));
+            var contrasenaEncriptada = Encriptar.CodificarContrasena(contrasena);
+
+            var usuario = _contexto.Usuarios.FirstOrDefault(r => r.Nombre == nombreUsuario && r.Contrasena == contrasenaEncriptada);
 
             if (usuario != null)
             {

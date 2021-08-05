@@ -15,7 +15,18 @@ namespace TuDestinoHND.BL
             nuevoUsuario.Nombre = "admin";
             nuevoUsuario.Contrasena = Encriptar.CodificarContrasena("123");
 
+            var nuevoUsuario2 = new Usuario();
+            nuevoUsuario2.Nombre = "wmartinez";
+            nuevoUsuario2.Contrasena = Encriptar.CodificarContrasena("1234");
+
+            var nuevoUsuario3 = new Usuario();
+            nuevoUsuario3.Nombre = "ssuazo";
+            nuevoUsuario3.Contrasena = Encriptar.CodificarContrasena("1234");
+
             contexto.Usuarios.Add(nuevoUsuario);
+            contexto.Usuarios.Add(nuevoUsuario2);
+            contexto.Usuarios.Add(nuevoUsuario3);
+
             base.Seed(contexto);
         }
     }

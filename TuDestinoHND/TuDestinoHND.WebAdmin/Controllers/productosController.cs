@@ -7,6 +7,7 @@ using TuDestinoHND.BL;
 
 namespace TuDestinoHND.WebAdmin.Controllers
 {
+    [Authorize]
     public class productosController : Controller
     {
         ProductosBL _productosBL;
